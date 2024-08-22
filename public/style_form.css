@@ -1,0 +1,29 @@
+body{
+    background-color: aquamarine;
+}
+
+
+form{
+    display: block;
+    position: relative;
+    left: auto;
+    top:30%;
+    background-color: blue;
+    border: solid black;
+    padding: 4px;
+    width: 25%;
+    height: auto;
+    
+    
+}
+
+input{
+    display: flexbox;
+    padding: 3px;
+    margin: 3px;
+    background-color: khaki;
+    border-width: 1px;
+    border-radius: 5%;
+
+
+}

@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <title> all users </title>
+    </head>
+    <body>
+        <p class="Display-4"> All Users</p>
+        <div id ="l" visibility="visible" style="display: flex;"> Loading </div>
+        <ul class="list-group">
+        <% for( let i = 0; i < arr.length; i++ ) { %>
+                
+
+           <li class="list-group-item list-group-item-info"> person id <%=arr[i].id  %> : <%= arr[i].name%> </li>
+        
+        <% } %>
+        </ul>
+        <a role="button" class="btn btn-success" href="/user/add-user/"> Add user</a>
+        <a class="btn btn-info" href="/user/update-user/" style="background-color:rgb(189, 83, 83) ;"> Update user</a>
+        <a class="btn btn-warning" href="/"> Home Page</a>
+
+    </body>
+    <script>
+        document.onreadystatechange = function(){
+            if (document.readyState !=="complete"){
+                console.log("wait")
+                document.getElementById("l").style.visibility ="visible"
+            } else{
+                document.getElementById("l").style.visibility = "hidden"
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            background-color: cornflowerblue;
+        }
+        a{
+            margin: 8px;
+        }
+        ul{
+            display: inline;
+            
+        }
+        li{
+            margin: 5px;
+        }
+        p{
+            position: relative;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+</html>
