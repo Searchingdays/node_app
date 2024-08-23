@@ -11,7 +11,7 @@ import { reg } from '../server.js';
 import {EventEmitter} from 'node:events'
 import exp from 'node:constants';
 import cookieParser from 'cookie-parser';
-import http from 'http'
+import http from 'http';
 
 
 
@@ -33,30 +33,37 @@ router.post('/new_user/',(req,res)=>{
   console.log(a[0])
   
   user.create({id:a[1], name:a[0]})
-   .then(()=>{
+   .then((s,f)=>{
     console.log("done")
-   })
-   .catch((err)=>{
 
-    res.render('error',{r:err.name, msg: err.errors[0].message})
-    
-   })
-
-   
-   user.sync()
+    user.sync()
    .then(()=>{
-    
+    console.log("4")
     res.render('user_added')
    })
    .catch((err)=>{
     console.log(err)
-    
-    try{res.render('error', {r: err.name, msg: err.errors[0].message})
+    console.log("5")
+    try{res.render('error')
+      console.log("3")
    } catch {
-    res.send(err)
+    console.log("5")
+    res.redirect('/user/error/')
    }
    })
   })
+
+   .catch((err)=>{
+    console.log("2")
+    res.render('error')
+    return
+    
+   })
+
+   
+   
+     
+   })
 
 
 router.get('/all-users/', (req,res)=>{
